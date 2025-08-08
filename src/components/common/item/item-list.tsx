@@ -125,8 +125,8 @@ export default function ItemList({ initialParams, page }: ItemListGridProps) {
 
             return (
               <div key={idx} className={clsx('flex w-full', gapClass)}>
-                {group.map((item, idx) => (
-                  <ItemPreview key={idx} item={item} maxWidthClass={maxWidthClass} heightClass={heightClass} />
+                {group.map((item) => (
+                  <ItemPreview key={item.itemId} item={item} maxWidthClass={maxWidthClass} heightClass={heightClass} />
                 ))}
                 {placeholders.map((_, idx) => (
                   <div key={idx} className={clsx('flex-1', maxWidthClass, heightClass)} />
