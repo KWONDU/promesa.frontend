@@ -29,7 +29,7 @@ export default function ClientErrorTemplate({ status, message }: ClientErrorTemp
           </button>
         </div>
         <div className="bg-grey-9 mr-4.5 ml-5.5 font-bold">
-          <Link href="/" className="flex h-12 w-full items-center justify-center rounded-xs">
+          <Link href="/home" className="flex h-12 w-full items-center justify-center rounded-xs">
             <p className="text-body-01 text-grey-1">메인으로</p>
           </Link>
         </div>
