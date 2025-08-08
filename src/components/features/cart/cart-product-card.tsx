@@ -67,11 +67,11 @@ export default function CartProductCard({ product }: CartProductCardProps) {
         </div>
         <div className="flex justify-between">
           {!isSoldOut ? (
-            <div className="flex h-6.5 w-21.5 items-center justify-between gap-2.5 rounded-full border px-2">
+            <div className="flex h-6.5 w-21.5 items-center justify-between gap-2.75 rounded-full border px-2">
               <button
                 onClick={handleQuantityDecrease}
                 disabled={quantity <= 1}
-                className="text-grey-9 flex h-8 w-8 cursor-pointer items-center justify-center disabled:opacity-30"
+                className="text-grey-9 flex h-8.5 w-8.5 cursor-pointer items-center justify-center disabled:opacity-30"
               >
                 -
               </button>
@@ -79,7 +79,7 @@ export default function CartProductCard({ product }: CartProductCardProps) {
               <button
                 onClick={handleQuantityIncrease}
                 disabled={quantity >= itemCount}
-                className="text-grey-9 flex h-8 w-8 cursor-pointer items-center justify-center pb-0.5 disabled:opacity-50"
+                className="text-grey-9 flex h-8.5 w-8.5 cursor-pointer items-center justify-center pb-0.5 disabled:opacity-30"
               >
                 +
               </button>
