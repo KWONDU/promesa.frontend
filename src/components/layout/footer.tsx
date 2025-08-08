@@ -1,53 +1,27 @@
 import { BUSINESS_INFORMATION } from '@/lib/constants/business-information';
+import stringToMultilineTSX from '@/lib/utils/string-to-multiline-tsx';
 import PromesaTextExtraSmallIcon from '@/public/icons/logo/text-xs.svg';
 
 export default function Footer() {
-  const upperLeftKeys = ['전화', '운영시간', '점심시간', '휴일'] as const;
-  const upperRightKeys = ['계좌', '예금주'] as const;
-  const lowerKeys = [
-    '법인명(상호)',
-    '개인정보관리책임',
-    '사업자등록번호',
-    '통신판매업신고',
-    '주소',
-    '전화',
-    '이메일',
-  ] as const;
+  const upperKeys = ['전화', '이메일', '은행', '예금주', '운영시간'] as const;
 
   return (
-    <footer className="text-caption-01 text-grey-9 bg-green relative z-500 flex flex-col gap-5 px-5 pt-5 pb-9 font-medium">
+    <footer className="bg-green relative z-500 flex flex-col gap-5 px-5 pt-5 pb-9">
       <div className="my-2.5 flex items-center">
         <PromesaTextExtraSmallIcon className="text-black" />
       </div>
-      <div className="flex flex-col gap-6">
-        <div className="flex justify-between">
-          <div className="flex w-36 flex-col gap-1">
-            {upperLeftKeys.map((key) => BUSINESS_INFORMATION[key] && <p key={key}>{BUSINESS_INFORMATION[key]}</p>)}
+      <div className="flex flex-col gap-1">
+        {upperKeys.map((key) => (
+          <div key={key} className="flex gap-4">
+            <p className="text-caption-01 text-grey-6 font-medium">{key}</p>
+            <p className="text-caption-01 text-grey-9 font-medium">{stringToMultilineTSX(BUSINESS_INFORMATION[key])}</p>
           </div>
-          <div className="flex w-39.5 flex-col gap-1">
-            {upperRightKeys.map((key) => BUSINESS_INFORMATION[key] && <p key={key}>{BUSINESS_INFORMATION[key]}</p>)}
-          </div>
-        </div>
-        <hr className="border-grey-5 w-full" />
-        <div className="flex flex-col gap-3.5">
-          <div className="flex flex-col gap-0.5">
-            {lowerKeys.map(
-              (key) =>
-                BUSINESS_INFORMATION[key] && (
-                  <div key={key} className="flex gap-2.5">
-                    <p className="text-grey-6">{key}</p>
-                    <p>{BUSINESS_INFORMATION[key]}</p>
-                  </div>
-                ),
-            )}
-          </div>
-          <div className="text-grey-6 mb-4 flex gap-4">
-            <p>회사소개</p>
-            <p>이용약관</p>
-            <p>개인정보처리방침</p>
-            <p>이용안내</p>
-          </div>
-        </div>
+        ))}
+      </div>
+      <hr className="border-t-grey-5 border-t" />
+      <div className="flex flex-col gap-2.5">
+        <p className="text-caption-01 text-grey-6 font-medium">{BUSINESS_INFORMATION['문구'][0]}</p>
+        <p className="text-caption-01 text-grey-6 font-medium">{BUSINESS_INFORMATION['문구'][1]}</p>
       </div>
     </footer>
   );
